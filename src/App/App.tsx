@@ -1,34 +1,58 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
+import { Films, People } from 'swapi-ts'
+
+import { ResultsCard } from '@/App/components/resultsCard/resultsCard'
+import { SearchCard } from '@/App/components/searchCard/searchCard'
 
 import './App.css'
-import reactLogo from './react.svg'
+
+async function fetchResults({ query, type }: Search) {
+  switch (type) {
+    case 'People': {
+      const { resources } = await People.findBySearch([query])
+
+      return resources.map(({ value }) => value.name)
+    }
+    case 'Movies': {
+      const { resources } = await Films.findBySearch([query])
+
+      return resources.map(({ value }) => value.title)
+    }
+  }
+
+  return null
+}
 
 const App = () => {
-  const [count, setCount] = useState(0)
+  const [search, setSearch] = useState<Search | undefined>(undefined)
+  const [results, setResults] = useState<string[] | undefined>([])
+
+  useEffect(() => {
+    if (search) {
+      setResults(undefined)
+      fetchResults(search).then((response) => {
+        if (response) setResults(response)
+      })
+    }
+  }, [search])
 
   return (
-    <div className="App">
-      <div className="flex">
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src="/icons/favicon.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <a href="https://eruptionjs.dev" target="_blank" rel="noreferrer">
-          <span className="logo eruption">🌋</span>
-        </a>
+    <>
+      <div className="header">
+        <h1>SWStarter</h1>
       </div>
-      <h1>Vite + React/TS = EruptionJS</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite, React and Eruption logos to learn more</p>
-    </div>
+      <main className="app">
+        <SearchCard setSearch={setSearch} />
+        <ResultsCard results={results} />
+      </main>
+    </>
   )
+}
+
+export interface Search {
+  type: string
+  query: string
 }
 
 export { App }

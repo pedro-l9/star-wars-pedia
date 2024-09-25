@@ -1,4 +1,3 @@
-/// <reference types="vitest" />
 import react from '@vitejs/plugin-react-swc'
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
@@ -25,12 +24,6 @@ export default defineConfig({
       exclude: [/\.(br)$/, /\.(gz)$/],
     }),
   ],
-  test: {
-    globals: true,
-    watch: false,
-    environment: 'happy-dom',
-    setupFiles: './src/setup-test.ts',
-  },
   build: {
     sourcemap: true,
     target: 'esnext',

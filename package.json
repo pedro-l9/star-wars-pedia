@@ -12,19 +12,14 @@
   "bugs": "https://github.com/eruptionjs/core/issues",
   "scripts": {
     "dev": "vite --host",
-    "start": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview --host",
-    "test": "vitest",
     "treemap": "vite-bundle-visualizer --open --template=treemap --output='./dist/treemap.html'",
     "prune": "rm -rf node_modules yarn.lock package-lock.json pnpm-lock.yaml bun.lockb dist coverage build dev-dist",
     "preupdate": "bun pm cache rm",
     "update": "ncu --interactive --format group --install never",
     "postupdate": "bun install",
     "upgrade": "bun run prune && bun run update",
-    "test:watch": "vitest --watch",
-    "test:coverage": "vitest --watch --coverage",
-    "test:ui": "vitest --watch --coverage --ui",
     "lint": "eslint src --no-inline-config --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "bun run lint -- --fix",
     "lint:css": "stylelint **/*.css --aei --color",
@@ -34,8 +29,7 @@
     "format:fix": "bun run prettier:fix && bun run lint:fix",
     "lint-staged": "lint-staged && tsc",
     "prebuild": "bun run lint-staged",
-    "prepare": "husky",
-    "commit": "commit"
+    "prepare": "husky"
   },
   "engines": {
     "node": "!^x",
@@ -46,16 +40,10 @@
   },
   "dependencies": {
     "react": "^18.x",
-    "react-dom": "^18.x"
+    "react-dom": "^18.x",
+    "swapi-ts": "^1.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.x",
-    "@commitlint/config-conventional": "^19.x",
-    "@commitlint/prompt-cli": "^19.x",
-    "@commitlint/types": "^19.x",
-    "@testing-library/jest-dom": "^6.x",
-    "@testing-library/react": "^15.x",
-    "@testing-library/user-event": "^14.x",
     "@trivago/prettier-plugin-sort-imports": "^4.x",
     "@types/bun": "^1.x",
     "@types/react": "^18.x",
@@ -63,8 +51,6 @@
     "@typescript-eslint/eslint-plugin": "^7.x",
     "@typescript-eslint/parser": "^7.x",
     "@vitejs/plugin-react-swc": "^3.x",
-    "@vitest/coverage-v8": "^1.x",
-    "@vitest/ui": "^1.x",
     "c8": "^9.x",
     "eslint": "^8.x",
     "eslint-config-prettier": "^9.x",
@@ -87,7 +73,6 @@
     "vite-bundle-visualizer": "^1.x",
     "vite-plugin-compression2": "^1.x",
     "vite-plugin-qrcode": "^0.x",
-    "vitest": "^1.x",
     "web-vitals": "^3.x"
   },
   "msw": {
