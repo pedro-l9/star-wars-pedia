@@ -1,87 +1,12 @@
-#search-box {
+#search-card {
   width: 410px;
-  padding: 30px;
   row-gap: 20px;
   height: fit-content;
 }
 
-h3 {
+#search-card h3 {
   text-align: left;
   font-weight: 600;
   color: #383838;
   margin: 0;
-}
-
-.radio-selection {
-  display: flex;
-  justify-content: flex-start;
-  column-gap: 30px;
-  font-weight: bold;
-}
-
-.radio-selection label {
-  display: flex;
-  column-gap: 10px;
-  align-items: center;
-}
-
-input[type='radio'] {
-  /* Add if not using autoprefixer */
-  appearance: none;
-
-  /* For iOS < 15 to remove gradient background */
-  background-color: #fff;
-
-  /* Not removed via appearance */
-  margin: 0;
-
-  /* Styling */
-  width: 16px;
-  height: 16px;
-  border: solid 1px var(--pinkish-grey);
-  border-radius: 50%;
-
-  /* Center ::before element */
-  display: grid;
-  place-content: center;
-}
-
-input[type='radio']::before {
-  content: '';
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-
-  /* Use instead of background-color so it can be printed (https://dev.to/alvaromontoro/comment/1214h) */
-  box-shadow: inset 4px 4px #fff;
-}
-
-input[type='radio']:checked::before {
-  transform: scale(1);
-}
-
-input[type='radio']:checked {
-  background-color: var(--azure);
-  border: 0;
-}
-
-.text-input {
-  padding: 11px 10px;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 3px 0 var(--warm-grey-75);
-  border: solid 1px var(--pinkish-grey);
-  background-color: #fff;
-  font-weight: bold;
-  color: #383838;
-}
-
-.text-input:focus {
-  outline: none;
-  border: solid 1px #383838;
-}
-
-.text-input::placeholder {
-  color: var(--pinkish-grey);
 }

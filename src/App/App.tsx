@@ -38,15 +38,15 @@ const App = () => {
   }, [search])
 
   return (
-    <>
-      <div className="header">
+    <div id="app">
+      <div id="header">
         <h1>SWStarter</h1>
       </div>
-      <main className="app">
+      <main>
         <SearchCard setSearch={setSearch} />
         <ResultsCard results={results} />
       </main>
-    </>
+    </div>
   )
 }
 

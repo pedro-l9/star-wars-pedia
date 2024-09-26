@@ -35,9 +35,9 @@ export function SearchCard({ setSearch }: Props) {
   }, [query, searchType, setSearch])
 
   return (
-    <section id="search-box" className="card">
+    <section id="search-card" className="card">
       <h3>What are you searching for?</h3>
-      <div className="radio-selection">
+      <div className="radio-container">
         {SEARCH_TYPES.map((type) => (
           <label key={type}>
             <input
@@ -60,7 +60,7 @@ export function SearchCard({ setSearch }: Props) {
         onChange={handleTextInput}
       />
 
-      <button disabled={query === ''} id="search-btn" onClick={buttonClick}>
+      <button className="button" disabled={query === ''} id="search-btn" onClick={buttonClick}>
         Search
       </button>
     </section>
