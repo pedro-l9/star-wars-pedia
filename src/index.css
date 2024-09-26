@@ -9,12 +9,7 @@
   --emerald: #089954;
 
   font-family: Montserrat, Helvetica, Arial, sans-serif;
-  font-synthesis: none;
-  text-rendering: optimizelegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-size-adjust: 100%;
-  min-height: 100vh;
+  font-size: 14px;
 }
 
 *,
@@ -24,33 +19,9 @@
   font-family: inherit;
 }
 
+html,
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  background-color: #ededed;
-}
-
-button {
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 14px;
-  color: #fff;
-  text-transform: uppercase;
-}
-
-button:enabled {
-  border: solid 1px var(--green-teal);
-  background-color: var(--green-teal);
-}
-
-button:disabled {
-  border: solid 1px var(--pinkish-grey);
-  background-color: var(--pinkish-grey);
-}
-
-button:enabled:hover {
-  background-color: var(--emerald);
+  width: fit-content;
+  min-width: 100vw;
 }
