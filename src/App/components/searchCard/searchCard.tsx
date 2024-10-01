@@ -24,7 +24,7 @@ export function SearchCard({ setSearch }: { setSearch: (search: Inputs) => void 
     mode: 'onChange',
     progressive: true,
     defaultValues: {
-      maritalStatus: 'Single',
+      maritalStatus: 'single',
       dependents: '',
       debt: '',
       ownsHouse: '',
@@ -81,7 +81,7 @@ export function SearchCard({ setSearch }: { setSearch: (search: Inputs) => void 
             <input
               {...register('maritalStatus', { required: true })}
               type="radio"
-              value="Married"
+              value="married"
             />
             Married
           </label>
@@ -89,7 +89,7 @@ export function SearchCard({ setSearch }: { setSearch: (search: Inputs) => void 
             <input
               {...register('maritalStatus', { required: true })}
               type="radio"
-              value="Single"
+              value="single"
               defaultChecked
             />
             Single
@@ -123,6 +123,7 @@ export function SearchCard({ setSearch }: { setSearch: (search: Inputs) => void 
                 required: true,
                 maxLength: 4,
                 minLength: 4,
+                max: new Date().getFullYear(),
               })}
               id="year-input"
               type="text"
@@ -147,7 +148,7 @@ export function SearchCard({ setSearch }: { setSearch: (search: Inputs) => void 
 export type Inputs = {
   age: number
   income: number
-  maritalStatus: string
+  maritalStatus: 'single' | 'married'
   dependents: string
   debt: string
   ownsHouse: string

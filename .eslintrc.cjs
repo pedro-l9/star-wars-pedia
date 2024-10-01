@@ -57,7 +57,6 @@ module.exports = {
     'import/no-extraneous-dependencies': 'error',
     'import/no-import-module-exports': 'error',
     'import/newline-after-import': 'error',
-    'import/group-exports': 'error',
     'import/exports-last': 'error',
     'import/no-useless-path-segments': ['error', { noUselessIndex: true }],
 

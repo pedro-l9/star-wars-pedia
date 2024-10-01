@@ -11,7 +11,7 @@
   "repository": "github:eruptionjs/core.git",
   "bugs": "https://github.com/eruptionjs/core/issues",
   "scripts": {
-    "dev": "vite --host",
+    "start": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview --host",
     "treemap": "vite-bundle-visualizer --open --template=treemap --output='./dist/treemap.html'",
@@ -28,7 +28,6 @@
     "format": "bun run prettier && bun run lint",
     "format:fix": "bun run prettier:fix && bun run lint:fix",
     "lint-staged": "lint-staged && tsc",
-    "prebuild": "bun run lint-staged",
     "prepare": "husky"
   },
   "engines": {
