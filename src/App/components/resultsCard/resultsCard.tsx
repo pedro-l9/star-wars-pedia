@@ -1,22 +1,21 @@
+/* eslint-disable import/group-exports */
+import { Offer } from '@/App/api/api'
+
 import './resultsCard.css'
 
-interface Props {
-  results?: string[]
-}
-
-function ResultItem(result: string) {
+function ResultItem(offer: Offer) {
   return (
-    <div key={result} className="result">
-      <p>{result}</p>
+    <div key={offer.key} className="result">
+      <p>{offer.key + ' | ' + offer.level}</p>
       <button className="button">SEE DETAILS</button>
     </div>
   )
 }
 
-export function ResultsCard({ results }: Props) {
+export function ResultsCard({ results }: { results: Offer[] | null }) {
   return (
     <section id="results-card" className="card">
-      <h2>Results</h2>
+      <h2>Available offers</h2>
       <div id="results-container">
         {results ? (
           results.length > 0 ? (
@@ -24,7 +23,7 @@ export function ResultsCard({ results }: Props) {
           ) : (
             <p className="placeholder">
               There are zero matches. <br />
-              Use the form to search for People or Movies
+              Use the form to search for insurance products that best suit you
             </p>
           )
         ) : (
